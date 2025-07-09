@@ -1,0 +1,648 @@
+<?xml version="1.0" ?>
+<robot
+  name="engineer">
+  <link name="world"/>
+  <joint name="base_fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.500461 0.019243 0.123785"
+        rpy="0 0 0" />
+      <mass
+        value="7.571638" />
+      <inertia
+        ixx="0.311253"
+        ixy="-0.033787"
+        ixz="-0.031208"
+        iyy="0.271643"
+        iyz="-0.015384"
+        izz="0.516910" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/v2/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/simplified/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link1">
+    <inertial>
+      <origin
+        xyz="-0.000350437873571002 0.00374111319322309 -0.043637551569339"
+        rpy="0 0 0" />
+      <mass
+        value="1.838580" />
+      <inertia
+        ixx="0.011481"
+        ixy="0.000046"
+        ixz="-0.000027"
+        iyy="0.006880"
+        iyz="0.000758"
+        izz="0.007879" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/v2/Link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/simplified/Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint1"
+    type="revolute">
+    <origin
+      xyz="0.084918 -2.5632E-05 0.2789"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1000"
+      velocity="1000" />
+    <dynamics 
+      damping="0.8" 
+      friction="0.05"/>
+  </joint>
+  <link
+    name="Link2">
+    <inertial>
+      <origin
+        xyz="0.123981818883479 0.000129340861552918 0.00582927748196746"
+        rpy="0 0 0" />
+      <mass
+        value="1.165876" />
+      <inertia
+        ixx="0.002344"
+        ixy="-0.000124"
+        ixz="0.000070"
+        iyy="0.013003"
+        iyz="-0.000018"
+        izz="0.014325" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/v2/Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/simplified/Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 -0.69813 3.1416" />
+    <parent
+      link="Link1" />
+    <child
+      link="Link2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="1.74"
+      effort="1000"
+      velocity="1000" />
+    <dynamics 
+      damping="0.5" 
+      friction="0.05"/>
+  </joint>
+  <link
+    name="Link3">
+    <inertial>
+      <origin
+        xyz="0.00861553562805756 -0.165650091960568 -1.40017937797776E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.604118" />
+      <inertia
+        ixx="0.004461"
+        ixy="0.000004"
+        ixz="0.000000"
+        iyy="0.001398"
+        iyz="0.000000"
+        izz="0.004014" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/v2/Link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/simplified/Link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint3"
+    type="revolute">
+    <origin
+      xyz="0.275 0 -0.000496"
+      rpy="-3.1416 0 0.87266" />
+    <parent
+      link="Link2" />
+    <child
+      link="Link3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0.0"
+      upper="1.745"
+      effort="1000"
+      velocity="1000" />
+    <dynamics 
+      damping="0.3" 
+      friction="0.05"/>
+  </joint>
+  <link
+    name="Link4">
+    <inertial>
+      <origin
+        xyz="-0.00224712520877784 0.0254252065027226 0.00941638938905714"
+        rpy="0 0 0" />
+      <mass
+        value="0.42581262" />
+      <inertia
+        ixx="0.000262"
+        ixy="-0.000010"
+        ixz="0.000003"
+        iyy="0.000123"
+        iyz="-0.000037"
+        izz="0.000215" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/v2/Link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/simplified/Link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint4"
+    type="revolute">
+    <origin
+      xyz="0 -0.335 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Link3" />
+    <child
+      link="Link4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.0"
+      upper="2.0"
+      effort="1000"
+      velocity="1000" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.01"/>
+  </joint>
+  <link
+    name="Link5">
+    <inertial>
+      <origin
+        xyz="0.0658314148940224 0.000214637366481696 -2.32031061031535E-12"
+        rpy="0 0 0" />
+      <mass
+        value="0.194013" />
+      <inertia
+        ixx="0.000231"
+        ixy="2.82E-06"
+        ixz="9E-08"
+        iyy="0.000404"
+        iyz="3E-08"
+        izz="0.000235" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/v2/Link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/simplified/Link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint5"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5708 0 -3.1416" />
+    <parent
+      link="Link4" />
+    <child
+      link="Link5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="1000"
+      velocity="1000" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.01"/>
+  </joint>
+  <link
+    name="Link6">
+    <inertial>
+      <origin
+        xyz="-1.31215038834398E-11 -7.16093850883226E-15 0.00777093276844015"
+        rpy="0 0 0" />
+      <mass
+        value="0.073638" />
+      <inertia
+        ixx="0.000159"
+        ixy="-1.5824E-13"
+        ixz="-5.3629E-10"
+        iyy="0.000159"
+        iyz="6.239E-15"
+        izz="0.000012" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/v2/Link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/simplified/Link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint6"
+    type="revolute">
+    <origin
+      xyz="0.15 0 0"
+      rpy="0 0 1.5708" />
+    <parent
+      link="Link5" />
+    <child
+      link="Link6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="1000"
+      velocity="1000" />
+    <dynamics 
+      damping="0.2" 
+      friction="0.05"/>
+  </joint>
+  <link
+    name="Link7">
+    <inertial>
+      <origin
+        xyz="-1.31215038834398E-11 -7.16093850883226E-15 0.00777093276844015"
+        rpy="0 0 0" />
+      <mass
+        value="0.108842" />
+      <inertia
+        ixx="0.000047"
+        ixy="1.4723E-06"
+        ixz="-5.7857E-07"
+        iyy="0.000047"
+        iyz="-1.9532E-06"
+        izz="0.000069" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/v2/Link7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29412 0.29412 0.29412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/simplified/Link7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint7"
+    type="revolute">
+    <origin
+      xyz="0 -0.050353 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Link6" />
+    <child
+      link="Link7" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1000"
+      velocity="1000" />
+    <dynamics 
+      damping="0.1" 
+      friction="0.05"/>
+  </joint>
+  <link
+    name="LinkC">
+    <inertial>
+      <origin
+        xyz="-0.010293002166729 0.0269637057926049 -0.0254082202127092"
+        rpy="0 0 0" />
+      <mass
+        value="0.167264909952029" />
+      <inertia
+        ixx="0.000069"
+        ixy="0.000001"
+        ixz="-0.000001"
+        iyy="0.000450"
+        iyz="-0.000052"
+        izz="0.000711" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/v2/LinkC.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://engineer_description/meshes/v2/LinkC.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="JointC"
+    type="fixed">
+    <origin
+      xyz="0.13418 -0.016215 0.0095"
+      rpy="1.83259 -1.5708 0" />
+    <parent
+      link="Link3" />
+    <child
+      link="LinkC" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+<ros2_control name="GazeboSystem" type="system">
+  <hardware>
+    <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+  </hardware>
+
+    <joint name="Joint1">
+      <param name="initial_position">0.0</param>
+      <command_interface name="effort"/>
+      <command_interface name="velocity"/>
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="Joint2">
+      <param name="initial_position">-0.0</param>
+      <command_interface name="effort"/>
+      <command_interface name="velocity"/>
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="Joint3">
+      <param name="initial_position">0.0</param>
+      <command_interface name="effort"/>
+      <command_interface name="velocity"/>
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="Joint4">
+      <param name="initial_position">-0.0</param>
+      <command_interface name="effort"/>
+      <command_interface name="velocity"/>
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="Joint5">
+      <param name="initial_position">0.0</param>
+      <command_interface name="effort"/>
+      <command_interface name="velocity"/>
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="Joint6">
+      <param name="initial_position">0.0</param>
+      <command_interface name="effort"/>
+      <command_interface name="velocity"/>
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="Joint7">
+      <param name="initial_position">0.0</param>
+      <command_interface name="effort"/>
+      <command_interface name="velocity"/>
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="JointC">
+      <param name="initial_position">0.0</param>
+      <command_interface name="effort"/>
+      <command_interface name="velocity"/>
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+  <!-- 专为Gazebo设置黑色材质 -->
+<gazebo reference="base_link">
+  <material>Gazebo/DarkGrey</material>
+</gazebo>
+<!-- Gazebo哑光灰色塑料 -->
+<gazebo reference="Link1">
+  <material>Gazebo/DarkGrey</material>
+</gazebo>
+<gazebo reference="Link2">
+  <material>Gazebo/DarkGrey</material>
+</gazebo>
+<gazebo reference="Link3">
+  <material>Gazebo/DarkGrey</material>
+</gazebo>
+<gazebo reference="Link4">
+  <material>Gazebo/DarkGrey</material>
+</gazebo>
+<gazebo reference="Link5">
+  <material>Gazebo/DarkGrey</material>
+</gazebo>
+<gazebo reference="Link6">
+  <material>Gazebo/DarkGrey</material>
+<gazebo reference="Link7">
+  <material>Gazebo/DarkGrey</material>
+</gazebo>
+<gazebo reference="LinkC">
+  <material>Gazebo/DarkGrey</material>
+</gazebo>
+
+</gazebo>
+<gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <robot_param>robot_description</robot_param>
+      <robot_param_node>robot_state_publisher</robot_param_node>
+      <parameters>/home/yy/arm_ws/src/engineer_description/config/engineer_controller.yaml</parameters>
+      <joint_names>
+        JointC,Joint1,Joint2,Joint3,Joint4,Joint5,Joint6,Joint7
+      </joint_names>
+    </plugin>
+</gazebo>
+</robot>
