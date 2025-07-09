@@ -1,17 +1,24 @@
-<!-- vscode-markdown-toc -->
-* 1. [导出DAE](#DAE)
-* 2. [快速测试  cpp不要任何动作](#cpp)
-* 3. [封装使用](#)
+- [Ref links](#ref-links)
+- [方法一：moveit官方脚本从urdf生成](#方法一moveit官方脚本从urdf生成)
+- [方法二：使用小鱼镜像](#方法二使用小鱼镜像)
+  - [1. 手动导出DAE和CPP](#1-手动导出dae和cpp)
+  - [2. 快速测试](#2-快速测试)
+  - [3. 封装使用](#3-封装使用)
 
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
+# Ref links
 
+[openrave doc](https://openrave.org/docs/latest_stable/openravepy/ikfast/#features)
 
+[ikfast作者主页](http://programmingvision.com/)
+
+[ikfast博论](http://www.programmingvision.com/rosen_diankov_thesis.pdf)
+
+主要是chap4.1章节  Inverse Kinematics 
+ 
+ 
+ 
 # 方法一：moveit官方脚本从urdf生成
-https://www.ncnynl.com/ros2docs/cn/moveit2/doc/examples/ikfast/ikfast_tutorial.html
+[moveit2生成](https://www.ncnynl.com/ros2docs/cn/moveit2/doc/examples/ikfast/ikfast_tutorial.html)
 
 ```shell
 ros2 run moveit_kinematics auto_create_ikfast_moveit_plugin.sh --iktype Transform6D $MYROBOT_NAME.urdf <planning_group_name> <base_link> <eef_link>
@@ -20,11 +27,12 @@ ros2 run moveit_kinematics auto_create_ikfast_moveit_plugin.sh --iktype Transfor
 
 该脚本和demo在moveit仓库里面，但很粗糙
 
-https://github.com/moveit/moveit2/tree/950322e0018b86a64258ebc1241b5d0509331ef7/moveit_kinematics/ikfast_kinematics_plugin
+[moveit脚本仓库](
+https://github.com/moveit/moveit2/tree/950322e0018b86a64258ebc1241b5d0509331ef7/moveit_kinematics/ikfast_kinematics_plugin)
 
 # 方法二：使用小鱼镜像
-
-https://fishros.org.cn/forum/topic/680/moveit-ikfast%E8%BF%90%E5%8A%A8%E5%AD%A6%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE-%E6%9C%80%E8%AF%A6%E7%BB%86-%E6%B2%A1%E6%9C%89%E4%B9%8B%E4%B8%80
+[鱼香ros教程](
+https://fishros.org.cn/forum/topic/680/moveit-ikfast%E8%BF%90%E5%8A%A8%E5%AD%A6%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE-%E6%9C%80%E8%AF%A6%E7%BB%86-%E6%B2%A1%E6%9C%89%E4%B9%8B%E4%B8%80)
 
 
 ## 1. 手动导出DAE和CPP
@@ -131,7 +139,20 @@ There are 1 free parameters that have to be specified.
 ```shell
 ./ikbest 0.9999999999472127 2.3611691540582357e-06 1.0000024959561181e-05 0.20925693486730298 2.361087095414382e-06 -0.9999999999635453 8.20584302683952e-06 -0.0005214805172206309 1.0000044334626828e-05 -8.205819415389866e-06 -0.999999999916332 0.2553153552550598 0
 ```
+解出八组解就对了
+```shell
+./ikbest 0.9999999999472127 2.3611691540582357e-06 1.0000024959561181e-05 0.20925693486730298 2.361087095414382e-06 -0.9999999999635453 8.20584302683952e-06 -0.0005214805172206309 1.0000044334626828e-05 -8.205819415389866e-06 -0.999999999916332 0.2553153552550598 0
+Found 8 ik solutions:
+sol0 (free=0): -0.004312419202562, 0.877527805834321, -0.691364640585095, -0.004310065844752, -2.526657691284108, -2.187625151747948, 0.000000000000000, 
+sol1 (free=0): -2.651191977223232, 0.865437378916429, -0.705341525070878, -2.651189615975389, -2.524701538556814, -2.187662072373914, 0.000000000000000, 
+sol2 (free=0): -0.000043524491898, 3.047829529556834, -1.467791047836373, 0.000041973260675, -2.013061129825681, 0.245506400250723, 0.000000000000000, 
+sol3 (free=0): -3.136778962716202, -1.424111460654788, 0.148388718823495, 3.136776594556423, -2.146621277438951, 0.577538783611929, 0.000000000000000, 
+sol4 (free=0): -0.000044212972782, 1.433465981638321, 0.056282062338797, -0.000042648668666, -1.150707218356980, 2.527901137870770, 0.000000000000000, 
+sol5 (free=0): -3.135666525259149, 0.217178910988316, -1.352233275336395, -3.135664158411167, -1.279887181265567, 2.852077624250877, 0.000000000000000, 
+sol6 (free=0): 0.000346328851010, -2.161563607202880, -0.614296216639936, -0.000348786561724, -0.210086754187744, -1.337170637761264, 0.000000000000000, 
+sol7 (free=0): 3.095943313213332, -2.347845372201471, -0.777228874824301, -3.095945673645566, -0.229445049811836, -1.341520919038487, 0.000000000000000,
 
+```
 
 ##  3. <a name=''></a>封装使用
 
@@ -158,7 +179,9 @@ main.c里面
 ```cpp
 #include "ikfast_wrapper.h"
 ```
+main.c里面将ikfast解和pinocchio解进行对比，所以要用的话需要先安装pinocchio
 
+[Installation Procedure](https://stack-of-tasks.github.io/pinocchio/download.html)
 
 cmake前记得导入 pinocchio安装目录
 
