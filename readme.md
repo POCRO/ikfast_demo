@@ -151,7 +151,7 @@ bool ComputeIK(const std::vector<double>& position,
 
 cmake添加wrapper就行
 ```cmake
-add_executable(ikfast_demo main.cpp ikfast_wrapper.cpp)
+add_executable(ikfast_demo main.cpp src/ikfast_wrapper.cpp)
 ```
 
 main.c里面
